@@ -1,0 +1,73 @@
+.plato-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.plato-item h2 {
+  margin: 0;
+}
+.notas {
+  color: black;
+}
+.finish {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.plato-item:hover {
+  transform: scale(1.02);
+}
+
+.finish:hover {
+  background-color: #45a049;
+}
+
+.naranjo {
+  background-color: orange;
+  animation: parpadear-amarillo 1s infinite alternate;
+}
+
+.rojo {
+  background-color: red;
+  animation: parpadear 1s infinite alternate;
+}
+@keyframes parpadear-amarillo {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgba(255, 166, 0, 0.795); /* Naranja pálido */
+  }
+}
+@keyframes parpadear {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgba(255, 0, 0, 0.795); /* Rojo pálido */
+  }
+}
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  z-index: 9999;
+}

@@ -1,0 +1,28 @@
+# Dependencias de Node.js
+node_modules/
+
+# Salida de compilación
+dist/
+build/
+
+# Archivos de configuración de paquetes
+*.log
+package-lock.json
+yarn.lock
+
+# Entornos y archivos sensibles
+.env
+.env.local
+.env.*.local
+
+# Sistemas operativos
+.DS_Store
+Thumbs.db
+
+# Configuración de editores de código
+.vscode/
+.idea/
+*.swp
+
+# Otros
+coverage/
