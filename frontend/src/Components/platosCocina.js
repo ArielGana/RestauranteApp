@@ -7,7 +7,7 @@ const PlatosCocina = () => {
 
   // Función para cargar y ordenar los platos desde el servidor
   const cargarPlatos = () => {
-    Axios.get(`http://127.0.0.1:3001/platosCocinando`)
+    Axios.get(`https://restaurante-app-murex.vercel.app/platosCocinando`)
       .then((response) => {
         const platosData = response.data;
 

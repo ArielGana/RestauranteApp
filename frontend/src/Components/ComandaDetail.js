@@ -36,7 +36,9 @@ const ComandaDetail = ({
   useEffect(() => {
     const fetchPlatos = async () => {
       try {
-        const response = await Axios.get("http://127.0.0.1:3001/Platos");
+        const response = await Axios.get(
+          "https://restaurante-app-murex.vercel.app/Platos"
+        );
         setPlatos(response.data);
       } catch (error) {
         console.error("Error fetching platos:", error);
@@ -45,7 +47,9 @@ const ComandaDetail = ({
 
     const fetchPostres = async () => {
       try {
-        const response = await Axios.get("http://127.0.0.1:3001/Postres");
+        const response = await Axios.get(
+          "https://restaurante-app-murex.vercel.app/Postres"
+        );
         setPostres(response.data);
       } catch (error) {
         console.error("Error fetching postres:", error);
@@ -54,7 +58,9 @@ const ComandaDetail = ({
 
     const fetchRefrescos = async () => {
       try {
-        const response = await Axios.get("http://127.0.0.1:3001/Refrescos");
+        const response = await Axios.get(
+          "https://restaurante-app-murex.vercel.app/Refrescos"
+        );
         setRefrescos(response.data);
       } catch (error) {
         console.error("Error fetching refrescos:", error);
@@ -145,8 +151,8 @@ const ComandaDetail = ({
 
     seleccionados.platos.forEach((plato) => {
       if (plato.id && plato.cantidad) {
-        const urlCreatePedidoPlato = `http://127.0.0.1:3001/createPedidoPlato`;
-        const urlCreatePedido = `http://127.0.0.1:3001/createPedido/${idcomanda}`;
+        const urlCreatePedidoPlato = `https://restaurante-app-murex.vercel.app/createPedidoPlato`;
+        const urlCreatePedido = `https://restaurante-app-murex.vercel.app/${idcomanda}`;
 
         const dataPlato = {
           id: id,
@@ -183,8 +189,8 @@ const ComandaDetail = ({
     const id = getRandomInt(1, 10000);
     seleccionados.refrescos.forEach((refresco) => {
       if (refresco.id && refresco.cantidad) {
-        const urlCreatePedidoRefresco = `http://127.0.0.1:3001/createPedidoRefresco`;
-        const urlCreatePedido = `http://127.0.0.1:3001/createPedidoRefresco/${idcomanda}`;
+        const urlCreatePedidoRefresco = `https://restaurante-app-murex.vercel.app/createPedidoRefresco`;
+        const urlCreatePedido = `https://restaurante-app-murex.vercel.app/createPedidoRefresco/${idcomanda}`;
 
         const dataRefresco = {
           id: id, // Utiliza el mismo idPedido para todos los refrescos
@@ -227,8 +233,8 @@ const ComandaDetail = ({
 
     seleccionados.postres.forEach((postre) => {
       if (postre.id && postre.cantidad) {
-        const urlCreatePedidoPostre = `http://127.0.0.1:3001/createPedido_Postre`;
-        const urlCreatePedido = `http://127.0.0.1:3001/createPedidoPostre/${idcomanda}`;
+        const urlCreatePedidoPostre = `https://restaurante-app-murex.vercel.app/createPedido_Postre`;
+        const urlCreatePedido = `https://restaurante-app-murex.vercel.app/createPedidoPostre/${idcomanda}`;
         const dataPostre = {
           id: id, // Utiliza el mismo idPedido para todos los postres
           postre_id: postre.id,

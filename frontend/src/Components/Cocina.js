@@ -26,7 +26,10 @@ const PlatoItem = ({
       cantidad: cantidad,
     };
 
-    Axios.post("http://127.0.0.1:3001/marcarItemPreparado", item)
+    Axios.post(
+      "https://restaurante-app-murex.vercel.app/marcarItemPreparado",
+      item
+    )
       .then((response) => {
         console.log(response.data);
         setTerminado(true);

@@ -10,7 +10,7 @@ const Pedidos = () => {
     navigate(`/Tomadas`);
   };
   useEffect(() => {
-    Axios.get("http://127.0.0.1:3001/Comandas")
+    Axios.get("https://restaurante-app-murex.vercel.app/Comandas")
       .then((response) => {
         const pedidosData = response.data.map((pedido) => ({
           id: pedido.id,

@@ -11,7 +11,7 @@ const Detail = () => {
 
   useEffect(() => {
     Axios.get(
-      `http://127.0.0.1:3001/pedidoDetailTomados/${comandaDetails.comandaid}`
+      `https://restaurante-app-murex.vercel.app/pedidoDetailTomados/${comandaDetails.comandaid}`
     )
       .then((response) => {
         const formattedPedidos = formatPedidos(response.data);

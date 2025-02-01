@@ -56,9 +56,11 @@ const DetailTomados = ({
 
   function confirmFinish() {
     Axios.post(
-      `http://127.0.0.1:3001/platoTerminado/${comandaDetails.comandaid}/${
-        comandaDetails.mesa
-      }/${comandaDetails.rutuser}/${"Correcto"}/${"Tomada"}`
+      `https://restaurante-app-murex.vercel.app/platoTerminado/${
+        comandaDetails.comandaid
+      }/${comandaDetails.mesa}/${
+        comandaDetails.rutuser
+      }/${"Correcto"}/${"Tomada"}`
     )
       .then((response) => {
         navigate(`/comandas`);

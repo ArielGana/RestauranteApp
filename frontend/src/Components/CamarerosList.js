@@ -5,7 +5,7 @@ const CamarerosList = ({ onSelect }) => {
   const [camareros, setCamareros] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://127.0.0.1:3001/Camareros")
+    Axios.get("https://restaurante-app-murex.vercel.app/Camareros")
       .then((response) => {
         setCamareros(response.data);
       })

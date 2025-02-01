@@ -72,7 +72,7 @@ const Comandas = ({
   const handleCamareroSelect = (camareroRut) => {
     setShowCamarerosList(false);
     Axios.post(
-      `http://127.0.0.1:3001/updateCamarero/${idpedido}/${camareroRut}`
+      `https://restaurante-app-murex.vercel.app/updateCamarero/${idpedido}/${camareroRut}`
     )
       .then((response) => {
         console.log(response.data);

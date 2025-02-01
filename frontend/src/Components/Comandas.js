@@ -69,7 +69,7 @@ const Comandas = ({
 
     if (camareroRut != "000000") {
       Axios.post(
-        `http://127.0.0.1:3001/updateCamarero/${idpedido}/${camareroRut}`
+        `https://restaurante-app-murex.vercel.app/updateCamarero/${idpedido}/${camareroRut}`
       )
         .then((response) => {
           console.log(response.data);
@@ -97,7 +97,7 @@ const Comandas = ({
   };
   function confirmFinish() {
     Axios.post(
-      `http://127.0.0.1:3001/platoTerminado/${idpedido}/${mesa}/${usuariorut}/${mensaje}/${"En Espera"}`
+      `https://restaurante-app-murex.vercel.app/platoTerminado/${idpedido}/${mesa}/${usuariorut}/${mensaje}/${"En Espera"}`
     )
       .then((response) => {
         window.location.reload();

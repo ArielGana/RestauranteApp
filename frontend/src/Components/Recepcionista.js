@@ -19,7 +19,7 @@ const Recepcionista = () => {
 
   useEffect(() => {
     // Obtener datos de las mesas del servidor
-    Axios.get("http://127.0.0.1:3001/mesa")
+    Axios.get("https://restaurante-app-murex.vercel.app/mesa")
       .then((response) => {
         const mesasData = response.data.map((mesa) => ({
           id: mesa.id,
@@ -42,14 +42,16 @@ const Recepcionista = () => {
   };
 
   const handleReserveClick = () => {
-    Axios.get(`http://127.0.0.1:3001/selectUser/${cliente.rut}`)
+    Axios.get(
+      `https://restaurante-app-murex.vercel.app/selectUser/${cliente.rut}`
+    )
       .then((response) => {
         if (response.data.length > 0) {
           handleReservation();
         } else {
           console.log(cliente);
           // Usuario no existe, crear nuevo usuario
-          Axios.post("http://127.0.0.1:3001/create", cliente)
+          Axios.post("https://restaurante-app-murex.vercel.app/create", cliente)
             .then((response) => {
               console.log("Usuario creado exitosamente", response);
               handleReservation();
@@ -67,14 +69,14 @@ const Recepcionista = () => {
   const handleReservation = () => {
     if (mesaSeleccionada) {
       Axios.post(
-        `http://127.0.0.1:3001/createComanda/${mesaSeleccionada}/${cliente.rut}`,
+        `https://restaurante-app-murex.vercel.app/createComanda/${mesaSeleccionada}/${cliente.rut}`,
         {}
       ).then((response) => {
         console.log("Pedido Ingresado Correctamente", response);
       });
 
       Axios.post(
-        `http://127.0.0.1:3001/mesastatus/${mesaSeleccionada}/${cliente.rut}`,
+        `https://restaurante-app-murex.vercel.app/mesastatus/${mesaSeleccionada}/${cliente.rut}`,
         {}
       )
         .then((response) => {
