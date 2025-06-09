@@ -3,26 +3,28 @@ const app = express();
 const cors = require("cors");
 const mysql = require("mysql");
 require("dotenv").config();
+const postgres = require("postgres");
+
 // Middleware para manejar JSON y CORS
 app.use(cors());
 app.use(express.json());
 
 // Configuración de la conexión a la base de datos
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
+const connectionString = process.env.DATABASE_URL;
 
 // Conectar a la base de datos
-db.connect((err) => {
-  if (err) {
-    console.error("Error connecting to the database:", err);
-    return;
-  }
-  console.log("Connected to the database.");
+const sql = postgres(connectionString, {
+  ssl: "require", // Obligamos a usar SSL
 });
+
+// Probar la conexión
+sql`SELECT 1`
+  .then(() => {
+    console.log("Conexión exitosa");
+  })
+  .catch((err) => {
+    console.error("Error conectando a la base de datos:", err);
+  });
 
 app.post("/create", (req, res) => {
   const { rut, nombre, apellido } = req.body;
